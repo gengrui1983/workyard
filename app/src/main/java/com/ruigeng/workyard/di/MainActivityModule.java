@@ -16,9 +16,14 @@
 
 package com.ruigeng.workyard.di;
 
+import com.ruigeng.workyard.ui.main.MainActivity;
+
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
 @Module
 public abstract class MainActivityModule {
+
+    @ContributesAndroidInjector(modules = MainFragmentBuildersModule.class)
+    abstract MainActivity contributeMainActivity();
 }
