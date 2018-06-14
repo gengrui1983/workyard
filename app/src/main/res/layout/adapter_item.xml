@@ -39,6 +39,8 @@
             android:id="@+id/imgPost"
             android:layout_height="@dimen/item_max_height"
             android:layout_width="match_parent"
+            android:paddingLeft="1px"
+            android:paddingRight="1px"
             android:scaleType="center" />
 
         <RelativeLayout
