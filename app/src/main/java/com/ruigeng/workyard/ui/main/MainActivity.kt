@@ -19,6 +19,7 @@ class MainActivity: LifecycleAppCompatActivity(), HasSupportFragmentInjector {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_base)
 
         fragment = MainFragment.getInstance()
 

@@ -1,10 +1,11 @@
 package com.ruigeng.workyard.ui.main
 
+import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
-import com.ruigeng.workyard.App
+import javax.inject.Inject
 
-class MainViewModel(
-        context: App
+class MainViewModel @Inject constructor(
+        context: Application
 ): AndroidViewModel(context) {
 
 }
