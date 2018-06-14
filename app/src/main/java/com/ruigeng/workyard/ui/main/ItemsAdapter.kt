@@ -6,6 +6,7 @@ import android.databinding.DataBindingUtil
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.ruigeng.workyard.R
 import com.ruigeng.workyard.data.Item
 import com.ruigeng.workyard.databinding.AdapterItemBinding
@@ -31,11 +32,14 @@ open class ItemsAdapter(private var dataBindingComponent: DataBindingComponent,
         items?.run {
             val item = this[position]
 
-            Glide.with(context).load(item.photoUrl).into(holder.binding.imgIcon)
+            Glide.with(context).load(item.photoUrl)
+                    .into(holder.binding.imgIcon)
 
-            Glide.with(context).load(item.defaultImageUrlOptimised).into(holder.binding.imgPost)
+            Glide.with(context).load(item.defaultImageUrlOptimised)
+                    .apply(RequestOptions.centerCropTransform().placeholder(R.drawable.loading))
+                    .into(holder.binding.imgPost)
 
-            holder.binding.txtName.text = item.name
+            holder.binding.txtName.text = if (item.name.isEmpty()) "Sydney Citizen" else item.name
 
             holder.binding.txtLikes.text = item.likeCount.toString()
 
@@ -53,5 +57,4 @@ open class ItemsAdapter(private var dataBindingComponent: DataBindingComponent,
     override fun areContentsTheSame(oldItem: Item?, newItem: Item?): Boolean {
         return oldItem?.id == newItem?.id
     }
-
 }

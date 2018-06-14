@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="default_padding">7dp</dimen>
+
+    <dimen name="photo_length">50dp</dimen>
+
+    <dimen name="icons_length">20dp</dimen>
+
+    <dimen name="large_icons_length">35dp</dimen>
+
+    <dimen name="item_max_height">200dp</dimen>
+</resources>

@@ -6,6 +6,8 @@ import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -51,6 +53,15 @@ class MainFragment: Fragment(), Injectable{
             adapter = itemsAdapterValue.get()
 
             layoutManager = LinearLayoutManager(context)
+
+            addItemDecoration(
+                    DividerItemDecoration(context,
+                            DividerItemDecoration.VERTICAL).apply {
+                        ContextCompat.getDrawable(context, R.drawable.divider_recycler_view)?.let {
+                            setDrawable(it)
+                        }
+                    }
+            )
         }
 
         viewModel.run {

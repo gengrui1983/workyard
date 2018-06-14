@@ -12,7 +12,7 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:background="@android:color/holo_green_dark"
+        android:background="@drawable/rounded_corner_bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -20,53 +20,89 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:layout_width="match_parent"
+            android:padding="@dimen/default_padding"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="@dimen/photo_length"
+                android:layout_height="@dimen/photo_length" />
 
             <TextView
                 android:id="@+id/txtName"
+                android:layout_margin="@dimen/default_padding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
         <ImageView
             android:id="@+id/imgPost"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/item_max_height"
             android:layout_width="match_parent"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY" />
+            android:scaleType="center" />
 
         <RelativeLayout
             android:gravity="center_vertical"
+            android:padding="@dimen/default_padding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/imgLocation"
+                android:layout_width="@dimen/icons_length"
+                android:layout_height="@dimen/icons_length"
+                android:layout_marginEnd="@dimen/default_padding"
+                android:src="@drawable/location"
+                android:scaleType="fitXY" />
+
             <TextView
                 android:id="@+id/txtLocation"
+                android:gravity="center"
+                android:layout_toEndOf="@+id/imgLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <ImageView
+                android:id="@+id/imgLike"
+                android:layout_width="@dimen/icons_length"
+                android:layout_height="@dimen/icons_length"
+                android:layout_marginEnd="@dimen/default_padding"
+                android:layout_below="@+id/txtLocation"
+                android:src="@drawable/like"
+                android:scaleType="fitXY" />
+
             <TextView
                 android:id="@+id/txtLikes"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/imgLike"
+                android:layout_marginEnd="@dimen/default_padding"
                 android:layout_below="@+id/txtLocation" />
+
+            <ImageView
+                android:id="@+id/imgView"
+                android:layout_width="@dimen/icons_length"
+                android:layout_height="@dimen/icons_length"
+                android:layout_marginEnd="@dimen/default_padding"
+                android:layout_toEndOf="@+id/txtLikes"
+                android:layout_below="@+id/txtLocation"
+                android:src="@drawable/view"
+                android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/txtViews"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtLocation"
-                android:layout_alignBaseline="@+id/txtLikes" />
+                android:layout_toEndOf="@id/imgView"
+                android:layout_below="@+id/txtLocation" />
 
             <ImageView
-                android:id="@+id/imgLikes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/imgLargeLike"
+                android:layout_width="@dimen/large_icons_length"
+                android:layout_height="@dimen/large_icons_length"
+                android:src="@drawable/big_like"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true" />
 
