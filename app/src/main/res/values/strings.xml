@@ -2,6 +2,6 @@
     <string name="app_name">Workyard</string>
 
     <!-- Item Post -->
-    <string name="location">%1$s %2$s</string>
+    <string name="location">%1$s, %2$s</string>
 
 </resources>
