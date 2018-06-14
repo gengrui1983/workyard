@@ -14,30 +14,29 @@
  * limitations under the License.
  */
 
-package com.ruigeng.workyard.di;
+package com.ruigeng.workyard.binding;
 
-import android.content.Context;
+import android.databinding.BindingAdapter;
+import android.support.v4.app.Fragment;
+import android.widget.ImageView;
 
-import com.ruigeng.workyard.App;
-import com.ruigeng.workyard.Service.ApiService;
+import com.bumptech.glide.Glide;
 
-import javax.inject.Singleton;
+import javax.inject.Inject;
 
-import dagger.Module;
-import dagger.Provides;
+/**
+ * Binding adapters that work with a fragment instance.
+ */
+public class FragmentBindingAdapters {
+    final Fragment fragment;
 
-@Module(includes = ViewModelModule.class)
-class AppModule {
-
-    @Singleton
-    @Provides
-    ApiService providesApiService() {
-        return ApiService.Factory.create();
+    @Inject
+    public FragmentBindingAdapters(Fragment fragment) {
+        this.fragment = fragment;
     }
 
-    @Singleton
-    @Provides
-    Context providesAppContext() {
-        return App.instance.getApplicationContext();
+    @BindingAdapter("imageUrl")
+    public void bindImage(ImageView imageView, String url) {
+        Glide.with(fragment).load(url).into(imageView);
     }
 }

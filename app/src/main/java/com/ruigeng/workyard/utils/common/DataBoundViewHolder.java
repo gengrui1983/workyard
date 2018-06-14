@@ -14,30 +14,21 @@
  * limitations under the License.
  */
 
-package com.ruigeng.workyard.di;
+package com.ruigeng.workyard.utils.common;
 
-import android.content.Context;
+import android.databinding.ViewDataBinding;
+import android.support.v7.widget.RecyclerView;
 
-import com.ruigeng.workyard.App;
-import com.ruigeng.workyard.Service.ApiService;
+/**
+ * A generic ViewHolder that works with a {@link ViewDataBinding}.
+ *
+ * @param <T> The type of the ViewDataBinding.
+ */
+public class DataBoundViewHolder<T extends ViewDataBinding> extends RecyclerView.ViewHolder {
+    public final T binding;
 
-import javax.inject.Singleton;
-
-import dagger.Module;
-import dagger.Provides;
-
-@Module(includes = ViewModelModule.class)
-class AppModule {
-
-    @Singleton
-    @Provides
-    ApiService providesApiService() {
-        return ApiService.Factory.create();
-    }
-
-    @Singleton
-    @Provides
-    Context providesAppContext() {
-        return App.instance.getApplicationContext();
+    DataBoundViewHolder(T binding) {
+        super(binding.getRoot());
+        this.binding = binding;
     }
 }

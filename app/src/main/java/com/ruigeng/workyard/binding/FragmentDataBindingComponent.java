@@ -14,30 +14,23 @@
  * limitations under the License.
  */
 
-package com.ruigeng.workyard.di;
+package com.ruigeng.workyard.binding;
 
-import android.content.Context;
+import android.databinding.DataBindingComponent;
+import android.support.v4.app.Fragment;
 
-import com.ruigeng.workyard.App;
-import com.ruigeng.workyard.Service.ApiService;
+/**
+ * A Data Binding Component implementation for fragments.
+ */
+public class FragmentDataBindingComponent implements DataBindingComponent {
+    private final FragmentBindingAdapters adapter;
 
-import javax.inject.Singleton;
-
-import dagger.Module;
-import dagger.Provides;
-
-@Module(includes = ViewModelModule.class)
-class AppModule {
-
-    @Singleton
-    @Provides
-    ApiService providesApiService() {
-        return ApiService.Factory.create();
+    public FragmentDataBindingComponent(Fragment fragment) {
+        this.adapter = new FragmentBindingAdapters(fragment);
     }
 
-    @Singleton
-    @Provides
-    Context providesAppContext() {
-        return App.instance.getApplicationContext();
+    @Override
+    public FragmentBindingAdapters getFragmentBindingAdapters() {
+        return adapter;
     }
 }
